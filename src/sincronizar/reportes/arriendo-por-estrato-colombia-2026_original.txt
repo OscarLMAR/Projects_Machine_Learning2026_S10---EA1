@@ -5,9 +5,9 @@ Columnas: 7
 Duplicados: 0
 
 Columnas y tipos:
-- fecha: object
-- ciudad_id: object
-- ciudad: object
+- fecha: str
+- ciudad_id: str
+- ciudad: str
 - estrato: int64
 - avisos: int64
 - mediana: int64
