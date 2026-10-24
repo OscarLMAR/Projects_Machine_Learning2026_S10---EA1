@@ -45,13 +45,13 @@ jobs:
 
       - name: Crear carpetas de resultados
         run: |
-          mkdir -p Sincronizar/datos
-          mkdir -p Sincronizar/reportes
+          mkdir -p src/sincronizar/datos
+          mkdir -p src/sincronizar/reportes
 
       - name: Ejecutar notebook de carga de datos
-        working-directory: Sincronizar
+        working-directory: src/sincronizar
         run: |
-          ../.venv/bin/python -m jupyter nbconvert \
+          ../../.venv/bin/python -m jupyter nbconvert \
             --to notebook \
             --execute \
             --inplace \
@@ -64,9 +64,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add Sincronizar/datos \
-                  Sincronizar/reportes \
-                  Sincronizar/EA1_Carga_de_Datos.ipynb
+          git add src/sincronizar/datos \
+                  src/sincronizar/reportes \
+                  src/sincronizar/EA1_Carga_de_Datos.ipynb
 
           if git diff --cached --quiet; then
             echo "No se generaron cambios."
