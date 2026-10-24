@@ -1,0 +1,34 @@
+REPORTE DEL DATAFRAME
+============================================================
+Filas: 32
+Columnas: 7
+Duplicados: 0
+
+Columnas y tipos:
+- fecha: object
+- ciudad_id: object
+- ciudad: object
+- estrato: int64
+- avisos: int64
+- mediana: int64
+- por_m2: int64
+
+Valores nulos por columna:
+- fecha: 0
+- ciudad_id: 0
+- ciudad: 0
+- estrato: 0
+- avisos: 0
+- mediana: 0
+- por_m2: 0
+
+Estadísticas numéricas:
+       estrato     avisos       mediana     por_m2
+count   32.000     32.000  3.200000e+01     32.000
+mean     4.188   4781.250  3.425906e+06  34175.875
+std      1.355   7912.354  2.504060e+06  10759.204
+min      2.000    135.000  7.500000e+05  13000.000
+25%      3.000    574.250  1.587500e+06  28373.250
+50%      4.000   1239.000  2.800000e+06  33419.000
+75%      5.000   4836.000  4.562500e+06  39347.500
+max      6.000  31084.000  1.100000e+07  59524.000
