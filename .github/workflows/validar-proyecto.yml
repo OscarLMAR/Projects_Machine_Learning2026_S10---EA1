@@ -51,7 +51,7 @@ jobs:
       - name: Ejecutar notebook de carga de datos
         working-directory: Sincronizar
         run: |
-          ../../.venv/bin/jupyter nbconvert \
+          ../.venv/bin/python -m jupyter nbconvert \
             --to notebook \
             --execute \
             --inplace \
