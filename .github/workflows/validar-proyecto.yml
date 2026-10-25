@@ -47,10 +47,10 @@ jobs:
         run: |
           mkdir -p src/sincronizar/datos
           mkdir -p src/sincronizar/reportes
-          mkdir -p sincronizar/reportes
+          mkdir -p Sincronizar/reportes
           find src/sincronizar/datos -mindepth 1 -delete
           find src/sincronizar/reportes -mindepth 1 -delete
-          find sincronizar/reportes -mindepth 1 -delete
+          find Sincronizar/reportes -mindepth 1 -delete
 
       - name: Ejecutar notebook de carga de datos
         working-directory: src/sincronizar
@@ -80,7 +80,7 @@ jobs:
 
           git add src/sincronizar/datos \
                   src/sincronizar/reportes \
-                  sincronizar/reportes/arriendo-por-estrato-colombia-2026.txt \
+                  Sincronizar/reportes \
                   src/sincronizar/EA1_Carga_de_Datos.ipynb \
                   src/sincronizar/EA2_Carga_de_Datos.ipynb
 
