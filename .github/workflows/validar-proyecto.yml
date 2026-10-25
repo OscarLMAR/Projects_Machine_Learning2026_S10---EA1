@@ -1,5 +1,5 @@
 
-name: Ejecutar Semana 1
+name: Ejecutar notebook EA1
 
 on:
   push:
@@ -14,7 +14,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: ejecutar-semana-1-main
+  group: ejecutar-notebook-ea1-main
   cancel-in-progress: false
 
 jobs:
@@ -43,10 +43,14 @@ jobs:
           .venv/bin/python -m pip install -r requirements.txt
           .venv/bin/python -m pip install nbconvert nbformat jupyter
 
-      - name: Crear carpetas de resultados
+      - name: Limpiar datos y reportes generados
         run: |
           mkdir -p src/sincronizar/datos
           mkdir -p src/sincronizar/reportes
+          mkdir -p sincronizar/reportes
+          find src/sincronizar/datos -mindepth 1 -delete
+          find src/sincronizar/reportes -mindepth 1 -delete
+          find sincronizar/reportes -mindepth 1 -delete
 
       - name: Ejecutar notebook de carga de datos
         working-directory: src/sincronizar
@@ -66,6 +70,7 @@ jobs:
 
           git add src/sincronizar/datos \
                   src/sincronizar/reportes \
+                  sincronizar/reportes/arriendo-por-estrato-colombia-2026.txt \
                   src/sincronizar/EA1_Carga_de_Datos.ipynb
 
           if git diff --cached --quiet; then
