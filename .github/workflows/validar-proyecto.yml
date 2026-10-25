@@ -79,4 +79,6 @@ jobs:
           fi
 
           git commit -m "chore: actualizar resultados de carga de datos [skip ci]"
+          git fetch origin main
+          git rebase origin/main
           git push origin HEAD:main
