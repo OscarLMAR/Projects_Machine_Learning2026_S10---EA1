@@ -70,7 +70,7 @@ jobs:
             --execute \
             --inplace \
             --ExecutePreprocessor.timeout=1800 \
-            EA2_Regresion_Lineal.ipynb
+            EA2_Regresion_lineal.ipynb
 
       - name: Confirmar cambios generados
         if: github.event_name != 'pull_request'
@@ -82,7 +82,7 @@ jobs:
                   src/sincronizar/reportes \
                   Sincronizar/reportes \
                   src/sincronizar/EA1_Carga_de_Datos.ipynb \
-                  src/sincronizar/EA2_Regresion_Lineal.ipynb
+                  src/sincronizar/EA2_Regresion_lineal.ipynb
 
           if git diff --cached --quiet; then
             echo "No se generaron cambios."
