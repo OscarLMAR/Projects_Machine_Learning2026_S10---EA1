@@ -1,5 +1,5 @@
 
-name: Ejecutar notebook EA1
+name: Ejecutar notebooks EA1 y EA2
 
 on:
   push:
@@ -14,7 +14,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: ejecutar-notebook-ea1-main
+  group: ejecutar-notebooks-ea1-ea2-main
   cancel-in-progress: false
 
 jobs:
@@ -62,6 +62,16 @@ jobs:
             --ExecutePreprocessor.timeout=1800 \
             EA1_Carga_de_Datos.ipynb
 
+      - name: Ejecutar notebook EA2
+        working-directory: src/sincronizar
+        run: |
+          ../../.venv/bin/python -m jupyter nbconvert \
+            --to notebook \
+            --execute \
+            --inplace \
+            --ExecutePreprocessor.timeout=1800 \
+            EA2_Carga_de_Datos.ipynb
+
       - name: Confirmar cambios generados
         if: github.event_name != 'pull_request'
         run: |
@@ -71,7 +81,8 @@ jobs:
           git add src/sincronizar/datos \
                   src/sincronizar/reportes \
                   sincronizar/reportes/arriendo-por-estrato-colombia-2026.txt \
-                  src/sincronizar/EA1_Carga_de_Datos.ipynb
+                  src/sincronizar/EA1_Carga_de_Datos.ipynb \
+                  src/sincronizar/EA2_Carga_de_Datos.ipynb
 
           if git diff --cached --quiet; then
             echo "No se generaron cambios."
