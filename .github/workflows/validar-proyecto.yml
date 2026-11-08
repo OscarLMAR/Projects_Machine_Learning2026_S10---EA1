@@ -80,7 +80,7 @@ jobs:
             --execute \
             --inplace \
             --ExecutePreprocessor.timeout=1800 \
-            EA3-Aprendisaje-supervisado-y-no-supervisado.ipynb
+            EA3_Aprendisaje_supervisado_y_no_supervisado.ipynb
 
       - name: Confirmar cambios generados
         if: github.event_name != 'pull_request'
