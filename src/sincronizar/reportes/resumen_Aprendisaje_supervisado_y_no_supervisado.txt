@@ -1,0 +1,75 @@
+
+RESUMEN DE EJECUCIÓN - PROYECTO MACHINE LEARNING
+
+Fecha de ejecución: 2026-11-09 01:52:10
+
+1. PREGUNTA DE NEGOCIO
+
+¿Es posible identificar el estilo de consumo de los clientes
+teniendo en cuenta su ubicación geográfica y el valor de su
+cuota mensual?
+
+2. IDENTIFICACIÓN DEL DATASET
+
+Dataset: hpestrellag/customer_profile
+Variable objetivo: consumption_style
+
+3. PREPROCESAMIENTO
+
+Variables predictoras:
+- department
+- locality
+- province
+- monthly_fee_usd
+
+Variable excluida:
+- customer_id
+
+Procesamiento aplicado:
+- Imputación de valores nulos mediante la moda en variables categóricas.
+- Imputación mediante la mediana en variables numéricas.
+- Codificación de variables categóricas mediante OneHotEncoder.
+- División de datos: 80% entrenamiento y 20% prueba.
+- Semilla aleatoria: 42.
+
+Registros de entrenamiento: 400000
+Registros de prueba: 100000
+
+4. CONFIGURACIÓN DEL EXPERIMENTO
+
+Tipo de aprendizaje: Supervisado - Clasificación.
+Algoritmo: Random Forest Classifier.
+
+Parámetros:
+- Número de árboles: 30
+- Profundidad máxima: 12
+- Semilla aleatoria: 42
+- Procesadores: -1
+
+5. MÉTRICAS DEL MODELO
+
+Exactitud (Accuracy): 0.57636
+Precisión ponderada: 0.33219
+Recall ponderado: 0.57636
+F1 macro: 0.14625
+F1 ponderado: 0.42147
+
+Reporte de clasificación:
+
+                precision    recall  f1-score   support
+
+ binge-watcher       0.00      0.00      0.00      5250
+        casual       0.00      0.00      0.00     19716
+    heavy-user       0.00      0.00      0.00      2712
+    occasional       0.58      1.00      0.73     57636
+weekend-viewer       0.00      0.00      0.00     14686
+
+      accuracy                           0.58    100000
+     macro avg       0.12      0.20      0.15    100000
+  weighted avg       0.33      0.58      0.42    100000
+
+
+6. PREDICCIONES REALIZADAS
+
+occasional    100000
+
