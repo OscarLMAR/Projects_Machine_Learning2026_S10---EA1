@@ -1,6 +1,6 @@
 # Projects_Machine_Learning2026
 
-Proyecto de aprendizaje automático que reúne dos ejercicios: carga y transformación de datos de arriendos en Colombia (EA1) y predicción de notas estudiantiles mediante regresión lineal (EA2).
+Proyecto de aprendizaje automático que reúne tres ejercicios: carga y transformación de datos de arriendos en Colombia (EA1), predicción de notas estudiantiles mediante regresión lineal (EA2) y Aprendisaje superivisado y no supervisado (EA3).
 
 ## Integrantes
 
@@ -16,6 +16,69 @@ Carga desde Hugging Face el conjunto [Arriendo por estrato Colombia 2026](https:
 ### EA2: regresión lineal
 
 Utiliza el conjunto [Student Score Dataset](https://huggingface.co/datasets/MoazIrfan/student-score-dataset) para explorar si las notas de lectura y escritura permiten predecir la nota de matemáticas. El notebook entrena y evalúa una regresión lineal múltiple, presenta métricas y genera un reporte de resultados.
+
+### EA3: Aprendisaje supervisado y no supervisado
+
+Utilizamos el conjuto de Hugging Face [hpestrellag/customer_profile](https://huggingface.co/datasets/hpestrellag/customer_profile?). Se utilizo para responder a una pregunta de negocio que se genero en el grupo.
+
+### Pregunta de Negocio
+
+¿Es posible identificar el estilo de consumo de los clientes teniendo en cuenta su ubicación geográfica y el valor de su cuota mensual?
+
+## Selección y funcionamiento del modelo
+
+### Modelo seleccionado: Random Forest
+
+Para este proyecto se seleccionó el algoritmo Random Forest, un modelo de aprendizaje supervisado utilizado para resolver problemas de clasificación.
+
+Se escogió este modelo porque permite identificar el estilo de consumo de los clientes teniendo en cuenta características como su ubicación geográfica y el valor de su cuota mensual.
+
+### Tipo de aprendizaje
+
+El proyecto utiliza aprendizaje supervisado porque contamos con una variable objetivo conocida llamada `consumption_style`, que representa el estilo de consumo de cada cliente.
+
+### Variables utilizadas
+
+- **Variables predictoras:** `department`, `locality`, `province` y `monthly_fee_usd`.
+- **Variable objetivo:** `consumption_style`.
+
+### ¿Cómo funciona Random Forest?
+
+Random Forest funciona utilizando varios árboles de decisión que trabajan en conjunto para realizar una predicción.
+
+Su funcionamiento es el siguiente:
+
+1. Recibe los datos de los clientes.
+2. Selecciona diferentes muestras de los datos.
+3. Construye varios árboles de decisión.
+4. Cada árbol realiza una predicción sobre el estilo de consumo.
+5. Finalmente, el modelo selecciona la categoría que obtiene más votos entre los árboles.
+
+### Parámetros principales
+
+- `n_estimators`: cantidad de árboles utilizados.
+- `max_depth`: profundidad máxima de los árboles.
+- `min_samples_split`: cantidad mínima de registros para dividir un nodo.
+- `min_samples_leaf`: cantidad mínima de registros en una hoja.
+- `random_state`: permite reproducir los resultados.
+
+### Ventajas
+
+- Permite clasificar diferentes categorías.
+- Combina varios árboles de decisión.
+- No necesita escalado de las variables.
+- Puede trabajar con diferentes características de los clientes.
+
+### Limitaciones
+
+- Puede necesitar bastante memoria.
+- Su entrenamiento puede tardar cuando hay muchos registros.
+- Sus resultados pueden ser más difíciles de interpretar que los de un solo árbol de decisión.
+
+### Objetivo del modelo
+
+Utilizar la información de los clientes para predecir su estilo de consumo y aportar información que ayude a las empresas a conocer mejor sus clientes y desarrollar estrategias de fidelización.
+
 
 ## Estructura del proyecto
 
@@ -35,6 +98,7 @@ Projects_Machine_Learning2026/
 │       ├── reportes/
 │       ├── EA1_Carga_de_Datos.ipynb
 │       └── EA2_Regresion_lineal.ipynb
+        └── EA3_Aprendisaje_supervisado_y_no_supervisado
 ├── Sincronizar/
 │   └── reportes/
 ├── requirements.txt

@@ -1,5 +1,5 @@
 
-name: Ejecutar notebooks EA1 y EA2
+name: Ejecutar notebooks EA1, EA2 y EA3
 
 on:
   push:
@@ -14,7 +14,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: ejecutar-notebooks-ea1-ea2-main
+  group: ejecutar-notebooks-ea1-ea2-ea3-main
   cancel-in-progress: false
 
 jobs:
@@ -72,6 +72,16 @@ jobs:
             --ExecutePreprocessor.timeout=1800 \
             EA2_Regresion_lineal.ipynb
 
+      - name: Ejecutar notebook EA3
+        working-directory: src/sincronizar
+        run: |
+          ../../.venv/bin/python -m jupyter nbconvert \
+            --to notebook \
+            --execute \
+            --inplace \
+            --ExecutePreprocessor.timeout=1800 \
+            EA3_Aprendisaje_supervisado_y_no_supervisado.ipynb
+
       - name: Confirmar cambios generados
         if: github.event_name != 'pull_request'
         run: |
@@ -82,7 +92,8 @@ jobs:
                   src/sincronizar/reportes \
                   Sincronizar/reportes \
                   src/sincronizar/EA1_Carga_de_Datos.ipynb \
-                  src/sincronizar/EA2_Regresion_lineal.ipynb
+                  src/sincronizar/EA2_Regresion_lineal.ipynb \
+                  src/sincronizar/EA3-Aprendisaje-supervisado-y-no-supervisado.ipynb
 
           if git diff --cached --quiet; then
             echo "No se generaron cambios."
