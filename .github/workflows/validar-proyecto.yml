@@ -93,7 +93,7 @@ jobs:
                   Sincronizar/reportes \
                   src/sincronizar/EA1_Carga_de_Datos.ipynb \
                   src/sincronizar/EA2_Regresion_lineal.ipynb \
-                  src/sincronizar/EA3-Aprendisaje-supervisado-y-no-supervisado.ipynb
+                  src/sincronizar/EA3_Aprendisaje_supervisado_y_no_supervisado.ipynb
 
           if git diff --cached --quiet; then
             echo "No se generaron cambios."
